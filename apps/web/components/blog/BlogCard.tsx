@@ -11,6 +11,9 @@ import {
 } from "@chakra-ui/react";
 import type { Post } from "./data";
 
+import { urlFor } from "../../lib/sanity"
+
+
 interface BlogCardProps {
   post: Post;
 }
@@ -25,11 +28,11 @@ export const BlogCard = (props: BlogCardProps) => {
     <Stack spacing="6">
       <AspectRatio ratio={16 / 9}>
         <Image
-          src={post.image}
+          src={urlFor(post?.mainImage).url()}
           objectPosition="top"
           objectFit="cover"
           fallback={<Skeleton />}
-          alt={post.title}
+          alt={post?.title}
           borderRadius="xl"
         />
       </AspectRatio>
@@ -47,15 +50,15 @@ export const BlogCard = (props: BlogCardProps) => {
             {post.title}
           </Heading>
         </Stack>
-        <Text>{post.excerpt}</Text>
+        {/* <Text>{post.excerpt}</Text> */}
       </Stack>
       <HStack spacing="3">
-        <Avatar size="md" name={post.author.name} src={post.author.avatarUrl} />
+        <Avatar size="md" name={post.author.name} src={urlFor(post.author.image).url()} />
         <Box lineHeight="1.25rem">
           <Text fontSize="sm" color="default">
             {post.author.name}
           </Text>
-          <Text fontSize="sm"> {post.publishedAt}</Text>
+          <Text fontSize="sm"> {new Date(post.publishedAt).toLocaleString()}</Text>
         </Box>
       </HStack>
     </Stack>

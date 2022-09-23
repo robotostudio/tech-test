@@ -37,13 +37,13 @@ export default function Index() {
           </ChakraLink>
         </Text>
         <Stack mt={4}>
-          <Link href="/blog/hello-world" passHref>
+          <Link href="/blog/coconut-island" passHref>
             <ChakraLink textDecoration="underline">Blog single page</ChakraLink>
           </Link>
           <Link href="/blog" passHref>
             <ChakraLink textDecoration="underline">Blog list page</ChakraLink>
           </Link>
-          <Link href="/blog/tags/sailing-ships" passHref>
+          <Link href="/blog/tags/Sailing Ships" passHref>
             <ChakraLink textDecoration="underline">
               Sailing Ships (list of tagged blog posts tagged with &apos;Sailing
               Ships&apos;)
